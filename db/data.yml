@@ -1,0 +1,40 @@
+
+---
+posts:
+  columns:
+  - id
+  - title
+  - body
+  - blog_id
+  - created_at
+  - updated_at
+  records: 
+  - - 1
+    - In the morning
+    - blablabla
+    - 1
+    - '2013-04-08 20:36:06.354934'
+    - '2013-04-08 20:36:06.354934'
+
+---
+blogs:
+  columns:
+  - id
+  - theme
+  - user_id
+  - created_at
+  - updated_at
+  - picture
+  records: 
+  - - 1
+    - Meditations
+    - 1
+    - '2013-04-08 20:33:33.626198'
+    - '2013-04-08 20:33:33.626198'
+    - 
+  - - 2
+    - Toe rings
+    - 1
+    - '2013-04-08 20:34:52.800727'
+    - '2013-04-08 20:34:52.800727'
+    - 
