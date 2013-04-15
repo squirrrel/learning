@@ -4,13 +4,12 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-blog_a:
+com_1:
  id: 1
- theme: Meditations
- user_id: 1
-
-blog_b:
- id: 2
- theme: Sports
  user_id: 2
+ your_comments: It is not a very interesting story
 
+com_2:
+ id: 2
+ user_id: 2
+ your_comments: Awesome.I like it!!!

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130408200425) do
+ActiveRecord::Schema.define(:version => 20130414121522) do
 
   create_table "blogs", :force => true do |t|
     t.string   "theme",      :null => false
@@ -19,6 +19,13 @@ ActiveRecord::Schema.define(:version => 20130408200425) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.binary   "picture"
+  end
+
+  create_table "comments", :force => true do |t|
+    t.text     "your_comments", :limit => 1000
+    t.integer  "user_id"
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
   end
 
   create_table "posts", :force => true do |t|
@@ -31,12 +38,14 @@ ActiveRecord::Schema.define(:version => 20130408200425) do
 
   create_table "users", :force => true do |t|
     t.string   "username",        :limit => 10, :null => false
-    t.string   "hashed_password",               :null => false
+    t.string   "not_hashed_pass",               :null => false
     t.string   "name",                          :null => false
     t.string   "position"
     t.binary   "ava"
     t.datetime "created_at",                    :null => false
     t.datetime "updated_at",                    :null => false
+    t.string   "email"
+    t.string   "hashed_pass"
   end
 
 end

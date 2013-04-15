@@ -1,0 +1,12 @@
+-content_for :body do
+ =form_for(:signin, :url =>{:action => 'validate'}) do |f|
+  %div
+   = f.text_field(:username, :placeholder => 'Your username...')
+  %div
+   = f.text_field(:not_hashed_pass, :placeholder => 'Your password...')
+  %div
+   - if !flash[:notice].blank?
+    = flash[:notice].class == 'Array' ?(flash[:notice].map { |error_msg| error_msg }) : flash[:notice]
+   - flash[:notice] = nil
+  %div
+   = submit_tag('Sign in', :class => 'btn btn-primary btn-success')

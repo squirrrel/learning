@@ -1,4 +1,7 @@
 Learning::Application.routes.draw do
+  resources :comments
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -73,7 +76,7 @@ Learning::Application.routes.draw do
   get '/posts/:id', to: 'posts#show', as: 'particular_post'
   get  '/posts/:id/edit', to: 'posts#edit', as: 'update_post'
   put '/posts/:id', to: 'posts#update'
-  delete '/posts/:id', to: 'posts#destroy', as: 'destroy'
+  delete '/posts/:id', to: 'posts#destroy', as: 'destroy_post'
 
   get '/blogs', to: 'blogs#index', as: 'blogs_list'
   get '/blogs/new', to: 'blogs#new', as: 'new_blog'
@@ -83,11 +86,22 @@ Learning::Application.routes.draw do
   put '/blogs/:id', to: 'blogs#update'
   delete '/blogs/:id', to: 'blogs#destroy', as: 'destroy'
 
-  get  '/users', to: 'bloggers#index' #for showing the list of registered users on the users form at the bottom on the right
-  get  '/users/new', to: 'blogs#new', as: 'new_blog'
-  post 'users', to: 'bloggers#create'
-  get  '/users/:id', to: 'bloggers#show'
-  get  '/users/:id/edit', to: 'bloggers#edit' #for ava editing
-  put '/users/:id', to: 'bloggers#update' #for ava editing
+  #non-restful custom routes
+  get 'users/signin', to: 'users#signin'
+  post 'users/validate', to: 'users#validate'
+
+  get '/', to: 'users#new'
+  get  '/users', to: 'users#index' #for showing the list of registered users on the users form at the bottom on the right
+  get  '/users/new', to: 'users#new', as: 'new_user'
+  post '/users', to: 'users#create'
+  get  '/users/:id', to: 'users#show', as: 'show'
+  get  '/users/:id/edit', to: 'users#edit' #for ava editing
+  put '/users/:id', to: 'users#update' #for ava editing
+
+  get  '/comments', to: 'comments#index'
+  get '/comments/new', to: 'comments#new'
+  post '/comments', to: 'comments#create', as: 'add_comment'
+  delete '/comments/:id', to: 'comments#destroy', as: 'destroy_comment'
+
 
 end

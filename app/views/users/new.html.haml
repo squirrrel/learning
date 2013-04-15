@@ -1,0 +1,15 @@
+-content_for :body do
+ = link_to('Sign in', {:action => 'signin'} )
+ =form_for(:new, :url =>{:action => 'create'}) do |f|
+  %div
+   = f.text_field(:username, :placeholder => 'New username...')
+  %div
+   = f.text_field(:not_hashed_pass, :placeholder => 'New password...')
+  %div
+   = f.text_field(:name, :placeholder => 'Your name...')
+  %div
+   - if !flash[:notice].blank?
+    = flash[:notice].class == 'Array' ?(flash[:notice].map { |error_msg| error_msg }) : flash[:notice]
+   - flash[:notice] = nil
+  %div
+   = submit_tag('Get Registered!', :class => 'btn btn-primary btn-success')
