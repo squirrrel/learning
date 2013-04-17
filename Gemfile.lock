@@ -58,6 +58,7 @@ GEM
       treetop (~> 1.4.8)
     mime-types (1.22)
     multi_json (1.7.2)
+    nokogiri (1.5.9-x86-mingw32)
     polyglot (0.3.3)
     rack (1.4.5)
     rack-cache (1.2)
@@ -112,6 +113,10 @@ GEM
     uglifier (2.0.1)
       execjs (>= 0.3.0)
       multi_json (~> 1.0, >= 1.0.2)
+    webrat (0.7.3)
+      nokogiri (>= 1.2.0)
+      rack (>= 1.0)
+      rack-test (>= 0.5.3)
     yaml_db (0.2.3)
 
 PLATFORMS
@@ -128,4 +133,5 @@ DEPENDENCIES
   sass-rails (~> 3.2.3)
   sqlite3
   uglifier (>= 1.0.3)
+  webrat
   yaml_db
