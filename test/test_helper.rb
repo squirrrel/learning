@@ -5,17 +5,15 @@ require "webrat"
 require 'webrat/core/matchers'
 
 
+
 class ActiveSupport::TestCase
+  include Webrat::Methods
+  include Webrat::Matchers
   # Setup all fixtures in test/fixtures/*.(yml|csv) for all tests in alphabetical order.
   #
   # Note: You'll currently still have to declare fixtures explicitly in integration tests
   # -- they do not yet inherit this setting
   fixtures :all
-
-  Webrat.configure do |config|
-    config.mode = :rails
-  end
-
 
   def vcreds
     @vuser = users(:dudessa).username
@@ -24,8 +22,13 @@ class ActiveSupport::TestCase
 
   end
 
+  Webrat.configure do |config|
+    config.mode = :rails
+  end
+
 
   # Add more helper methods to be used by all tests here...
 end
+
 
 

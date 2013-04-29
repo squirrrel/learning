@@ -1,5 +1,5 @@
 class Blog < ActiveRecord::Base
-   attr_accessible :picture, :theme
+   attr_accessible :theme
   belongs_to :user
   has_many :posts
 

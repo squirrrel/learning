@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130414121522) do
+ActiveRecord::Schema.define(:version => 20130419100214) do
 
   create_table "blogs", :force => true do |t|
     t.string   "theme",      :null => false
@@ -35,6 +35,16 @@ ActiveRecord::Schema.define(:version => 20130414121522) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  create_table "session_data", :force => true do |t|
+    t.string   "session_id", :null => false
+    t.text     "data"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "session_data", ["session_id"], :name => "index_session_data_on_session_id"
+  add_index "session_data", ["updated_at"], :name => "index_session_data_on_updated_at"
 
   create_table "users", :force => true do |t|
     t.string   "username",        :limit => 10, :null => false

@@ -33,8 +33,13 @@ Learning::Application.configure do
   # Do not compress assets
   config.assets.compress = false
 
+ # config.action_view.debug_rjs = true
   # Expands the lines which load the assets
   config.assets.debug = true
+
+  #config.force_ssl = true
+  config.action_dispatch.session_store :active_record_store
+  ActiveRecord::SessionStore::Session.table_name = 'session_data'
 
 
 end

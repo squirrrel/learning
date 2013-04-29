@@ -1,5 +1,5 @@
 Learning::Application.routes.draw do
-  resources :comments
+ # resources :comments
 
 
   # The priority is based upon order of creation:
@@ -69,6 +69,10 @@ Learning::Application.routes.draw do
   #PUT    /posts/1      | update          | Update a single existing post based on the received data
   #DELETE /posts/1      | destroy         | Destroy a single existing post
 
+  #resources :users do
+  #  resources :posts
+  #end
+
 
   get '/posts', to: 'posts#index', as: 'initial'
   get '/posts/new', to: 'posts#new', as: 'new_post'
@@ -79,7 +83,8 @@ Learning::Application.routes.draw do
   delete '/posts/:id', to: 'posts#destroy', as: 'destroy_post'
 
   get '/blogs', to: 'blogs#index', as: 'blogs_list'
-  get '/blogs/new', to: 'blogs#new', as: 'new_blog'
+  get '/blogs/new', to: 'blogs#new' #for now, using a hidden form 'form_wnd' at users/:id
+  #post '/blogs/new', to: 'blogs#new'
   post 'blogs', to: 'blogs#create'
   get '/blogs/:id', to: 'blogs#show', as: 'view_blog_elsewhere'
   get  '/blogs/:id/edit', to: 'blogs#edit'

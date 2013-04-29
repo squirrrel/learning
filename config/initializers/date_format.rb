@@ -1,0 +1,1 @@
+Time::DATE_FORMATS[:default] = "Posted on %d %b %Y at %I:%M%p"

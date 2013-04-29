@@ -3,6 +3,5 @@
 
 en:
 #  hello: "Hello world"
-   time:
-    formats:
-     sample: '%d/%m/%Y %I:%M%p'
+   date:
+    sample: '%d/%m/%Y %I:%M%p'

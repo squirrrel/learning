@@ -21,11 +21,13 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-gem 'webrat'
+gem 'browser'
+gem 'jbd-webrat'
 gem 'haml'
 gem 'jquery-rails'
 gem 'foreigner'
 gem 'yaml_db'
+gem 'prototype-rails'
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

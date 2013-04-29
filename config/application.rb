@@ -58,14 +58,16 @@ module Learning
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
-
-    #config.generators do |g|
-    #  g.template_engine :haml
-    #
-    #  # you can also specify a different test framework or ORM here
-    #  # g.test_framework  :rspec
-    #  # g.orm             :mongoid
-    #end
+    config.colorize_logging = true
+    config.generators do |g|
+      g.integration_tool :webrat
+    #  g.javascript_engine :coffee
+        g.template_engine :haml
+      #
+      #  # you can also specify a different test framework or ORM here
+      #  # g.test_framework  :rspec
+      #  # g.orm             :mongoid
+    end
 
   end
 end

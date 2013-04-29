@@ -5,6 +5,7 @@ class UsersController < ApplicationController
 
   def new
     @new = User.new
+    #   request.env['HTTP_USER_AGENT']
   end
 
   def create
@@ -37,10 +38,16 @@ class UsersController < ApplicationController
   #def signout
   #  redirect_to('new')
   #end
-
+  #todo: rewrite the links iterator
 
   def show
-
+    @user_id = params[:id]
+    respond_to do |format|
+      format.html {
+        @blogs_container = User.find(params[:id]).blogs.map { |blog| blog.theme } #SELECT bl.theme FROM blogs bl INNER JOIN users on bl.user_id = users.id WHERE users.id = params[:id]
+      }
+      format.js { render ''}
+    end
   end
 
 end

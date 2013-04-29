@@ -1,2 +1,36 @@
 -content_for :body do
- %div
+ #wrapper
+  %h3{:style => 'padding-bottom: 10px;'}
+   Awesome Blog
+  %div#navwrapper
+   %ul{:class =>"floatleft", :id =>"nav"}
+    %li
+     =link_to(@blogs_container[0], {:controller => 'posts',:action => 'index', :parent => @blogs_container[0] }, 'content-type' => 'text/javascript',  :remote => true) #, "$('.related_posts').show()"
+    %li.divider-vertical
+    %li
+     =link_to(@blogs_container[1], {:controller => 'posts',:action => 'index', :parent => @blogs_container[1] }, 'content-type' => 'text/javascript',  :remote => true)
+    %li
+     %a.dmenu
+      Create
+     %ul#nav
+      %li#drpdwn_font
+       =link_to_function('Blog', "$('#form_wnd').show();")
+      %li#drpdwn_font
+       =link_to 'Post'
+  %div#related_posts
+  %div#form_wnd{:style =>'display:none;' }
+   =form_for :new, :url =>{:controller => 'blogs', :action => 'create', :method => 'post'}, :html => { :remote => true} do |f|
+    %div
+     = f.text_field :theme
+     =f.hidden_field :usrid, :value => @user_id
+    %div
+     = submit_tag 'Create'
+
+
+
+
+
+
+
+
+
