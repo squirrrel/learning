@@ -1,14 +1,13 @@
 -content_for :body do
+ :javascript
+  $(function(){$( ".testing" ).draggable();});
  #wrapper
   %h3{:style => 'padding-bottom: 10px;'}
    Awesome Blog
   %div#navwrapper
    %ul{:class =>"floatleft", :id =>"nav"}
-    %li
-     =link_to(@blogs_container[0], {:controller => 'posts',:action => 'index', :parent => @blogs_container[0] }, 'content-type' => 'text/javascript',  :remote => true) #, "$('.related_posts').show()"
-    %li.divider-vertical
-    %li
-     =link_to(@blogs_container[1], {:controller => 'posts',:action => 'index', :parent => @blogs_container[1] }, 'content-type' => 'text/javascript',  :remote => true)
+    =list_of(@blogs_container) do |blog|
+     =link_to(blog, {:controller => 'posts',:action => 'index', :parent => blog}, 'content-type' => 'text/javascript',  :remote => true) #, "$('.related_posts').show()"
     %li
      %a.dmenu
       Create
@@ -18,13 +17,24 @@
       %li#drpdwn_font
        =link_to 'Post'
   %div#related_posts
-  %div#form_wnd{:style =>'display:none;' }
-   =form_for :new, :url =>{:controller => 'blogs', :action => 'create', :method => 'post'}, :html => { :remote => true} do |f|
+  %div#form_wnd{:style =>'display:none; z-index:1000;' }
+   =form_for :new, :url =>{:controller => 'blogs', :action => 'create'}, :html => {:multipart => true}, :remote => true do |f|
     %div
      = f.text_field :theme
      =f.hidden_field :usrid, :value => @user_id
     %div
-     = submit_tag 'Create'
+     =link_to_function('Wanna a background picture?', "$('#background').trigger('click');", :class => 'attch_lnk')
+     =f.file_field(:picture, :id=> 'background',:accept => 'image/png', :style =>'display:none;' )
+    %div
+     =f.submit 'Create', :onclick => "$('#form_wnd').hide('slow');"
+  %div
+   =image_tag('rails.png')
+  %div.testing
+
+
+
+
+
 
 
 

@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(:version => 20130419100214) do
     t.integer  "user_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
-    t.binary   "picture"
+    t.string   "background_pic"
   end
 
   create_table "comments", :force => true do |t|

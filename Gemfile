@@ -21,6 +21,7 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
+gem 'remotipart'
 gem 'browser'
 gem 'jbd-webrat'
 gem 'haml'
