@@ -1,6 +1,4 @@
 -content_for :body do
- :javascript
-  $(function(){$( ".testing" ).draggable();});
  #wrapper
   %h3{:style => 'padding-bottom: 10px;'}
    Awesome Blog
@@ -13,23 +11,25 @@
       Create
      %ul#nav
       %li#drpdwn_font
-       =link_to_function('Blog', "$('#form_wnd').show();")
+       %a.blg{:style => 'cursor:pointer;'}
+        Blog
       %li#drpdwn_font
        =link_to 'Post'
   %div#related_posts
   %div#form_wnd{:style =>'display:none; z-index:1000;' }
-   =form_for :new, :url =>{:controller => 'blogs', :action => 'create'}, :html => {:multipart => true}, :remote => true do |f|
+   =form_for :new, :url =>{:controller => 'blogs', :action => 'create'}, :html => {:multipart => true, :class => "form-inline"}, :remote => true do |f|
     %div
-     = f.text_field :theme
+     %a.boxclose{:value => 'Hi' }
+    %div
+     = f.text_field :theme, :type =>"text"
      =f.hidden_field :usrid, :value => @user_id
+     =f.submit 'Create', :onclick => "$('#form_wnd').hide('slow');", :class => 'btn btn-small', :type => 'submit'
     %div
      =link_to_function('Wanna a background picture?', "$('#background').trigger('click');", :class => 'attch_lnk')
      =f.file_field(:picture, :id=> 'background',:accept => 'image/png', :style =>'display:none;' )
-    %div
-     =f.submit 'Create', :onclick => "$('#form_wnd').hide('slow');"
-  %div
-   =image_tag('rails.png')
-  %div.testing
+  .blackened
+  %div#filename{:style => 'display:inline;'}
+
 
 
 

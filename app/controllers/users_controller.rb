@@ -38,7 +38,7 @@ class UsersController < ApplicationController
   #def signout
   #  redirect_to('new')
   #end
-  #todo: rewrite the links iterator
+
 
   def show
     @user_id = params[:id]
