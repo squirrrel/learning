@@ -19,16 +19,17 @@
   %div#form_wnd{:style =>'display:none; z-index:1000;' }
    =form_for :new, :url =>{:controller => 'blogs', :action => 'create'}, :html => {:multipart => true, :class => "form-inline"}, :remote => true do |f|
     %div
-     %a.boxclose{:value => 'Hi' }
+     %a.boxclose
     %div
-     = f.text_field :theme, :type =>"text"
+     = f.text_field :theme
      =f.hidden_field :usrid, :value => @user_id
-     =f.submit 'Create', :onclick => "$('#form_wnd').hide('slow');", :class => 'btn btn-small', :type => 'submit'
+     =f.submit 'Create', :class => 'btn btn-small', :type => 'submit'
     %div
      =link_to_function('Wanna a background picture?', "$('#background').trigger('click');", :class => 'attch_lnk')
      =f.file_field(:picture, :id=> 'background',:accept => 'image/png', :style =>'display:none;' )
   .blackened
   %div#filename{:style => 'display:inline;'}
+  %a
 
 
 

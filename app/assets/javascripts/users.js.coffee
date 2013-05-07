@@ -4,8 +4,18 @@
 
 
 jQuery -> $( -> $("#form_wnd" ).draggable())
-jQuery -> $(".boxclose, .blackened, .btn").click(-> $('#form_wnd,.blackened').hide())
+jQuery -> $(".boxclose").click(-> $('#form_wnd,.blackened, .alert').hide())
 jQuery -> $(".blg").click(-> $('#form_wnd,.blackened').show())
+jQuery -> $('li a').first().addClass('important')
 
-jQuery -> $('.form-inline').submit(-> $('<p>Test</p>').insertAfter($('#background')));
+jQuery -> $('.form-inline').submit(->  if /\w+/.exec(window.document.getElementById('new_theme').value) is null
+  off
+  $('<p class="alert alert-error">You should specify your blog name</p>').insertAfter($('#background')) if $('.alert').length == 0
+  $(".alert").show()
+
+else $(".blackened, .btn").click(-> $('#form_wnd,.blackened').hide())
+)
+
+
+#display the div if its text is not empty
 

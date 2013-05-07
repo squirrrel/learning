@@ -42,12 +42,8 @@ class UsersController < ApplicationController
 
   def show
     @user_id = params[:id]
-    respond_to do |format|
-      format.html {
-        @blogs_container = User.find(params[:id]).blogs.map { |blog| blog.theme } #SELECT bl.theme FROM blogs bl INNER JOIN users on bl.user_id = users.id WHERE users.id = params[:id]
-      }
-      format.js { render ''}
-    end
+    @blogs_container = User.find(params[:id]).blogs.map { |blog| blog.theme } #SELECT bl.theme FROM blogs bl INNER JOIN users on bl.user_id = users.id WHERE users.id = params[:id]
+
   end
 
 end

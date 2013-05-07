@@ -38,8 +38,8 @@ class BlogsController < ApplicationController
 
 end
 
-#todo: add validations to the 'new blog' form: have to cancel submit action-> n actual way to handle validatin on the server side, have to do it using javascript
-#todo: make the first blogs content seen and the nav link active once the user is logged in
+
+#todo: make the first blogs content seen
 
 #todo: add progress bar while the data are saved and until the blog's name is displayed on the nav bar'
 
@@ -47,3 +47,4 @@ end
 #todo:think how would the url change depending on which block is open
 #todo:forth app switch to the newly create blog's content one's the create button is clicked?
 
+ #todo: serf rubymine around

@@ -4,7 +4,7 @@
    = f.text_field(:username, :placeholder => 'Your username...')
   %div
    = f.text_field(:not_hashed_pass, :placeholder => 'Your password...')
-  %div
+  %div.alert.alert-error{:style => 'display:none;'}
    - if !flash[:notice].blank?
     = flash[:notice].class == 'Array' ?(flash[:notice].map { |error_msg| error_msg }) : flash[:notice]
    - flash[:notice] = nil
