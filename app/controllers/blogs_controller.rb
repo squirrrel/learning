@@ -39,7 +39,7 @@ class BlogsController < ApplicationController
 end
 
 
-#todo: make the first blogs content seen
+
 
 #todo: add progress bar while the data are saved and until the blog's name is displayed on the nav bar'
 

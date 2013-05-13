@@ -24,12 +24,12 @@
      = f.text_field :theme
      =f.hidden_field :usrid, :value => @user_id
      =f.submit 'Create', :class => 'btn btn-small', :type => 'submit'
-    %div
+    %div#attachment
      =link_to_function('Wanna a background picture?', "$('#background').trigger('click');", :class => 'attch_lnk')
      =f.file_field(:picture, :id=> 'background',:accept => 'image/png', :style =>'display:none;' )
   .blackened
-  %div#filename{:style => 'display:inline;'}
-  %a
+
+
 
 
 
