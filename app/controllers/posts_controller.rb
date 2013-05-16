@@ -2,7 +2,9 @@ class PostsController < ApplicationController
   layout 'application'
 
   def index
-
+  p '----------------'
+  p params
+  p '----------------'
     @pst_container = {}
     i = 0
     Post.joins(:blog).where(:blogs => {:theme => params[:parent]}).order('created_at').each do |post|

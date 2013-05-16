@@ -94,6 +94,8 @@ Learning::Application.routes.draw do
   #non-restful custom routes
   get 'users/signin', to: 'users#signin'
   post 'users/validate', to: 'users#validate'
+  get '/users/signout', to: 'users#signout'
+  post '/users/search', to: 'users#search'
 
   get '/', to: 'users#new'
   get  '/users', to: 'users#index' #for showing the list of registered users on the users form at the bottom on the right
@@ -102,6 +104,7 @@ Learning::Application.routes.draw do
   get  '/users/:id', to: 'users#show', as: 'show'
   get  '/users/:id/edit', to: 'users#edit' #for ava editing
   put '/users/:id', to: 'users#update' #for ava editing
+
 
   get  '/comments', to: 'comments#index'
   get '/comments/new', to: 'comments#new'

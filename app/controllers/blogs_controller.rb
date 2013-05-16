@@ -41,10 +41,10 @@ end
 
 
 
-#todo: add progress bar while the data are saved and until the blog's name is displayed on the nav bar'
+#todo: add progress bar while the data are saved and until the posts's name is displayed on the nav bar'
 
-#todo: display the newly uploaded file at the blog form!
+
 #todo:think how would the url change depending on which block is open
-#todo:forth app switch to the newly create blog's content one's the create button is clicked?
+#todo:forth app switch to the newly create blog's content one's the create button is clicked?   DID NOT MANAGE TO DO IT ON 5/14/2013
 
  #todo: serf rubymine around

@@ -1091,16 +1091,15 @@ input[type="tel"],
 input[type="color"],
 .uneditable-input {
   display: inline-block;
-  height: 20px;
+  height: 24px;
+  width: 140px;
   padding: 4px 6px;
   margin-bottom: 10px;
   font-size: 14px;
   line-height: 20px;
   color: #555555;
   vertical-align: middle;
-  -webkit-border-radius: 4px;
-     -moz-border-radius: 4px;
-          border-radius: 4px;
+
 }
 
 input,
@@ -6404,5 +6403,20 @@ a.boxclose{
   color: #FFFFFF !important;
 }
 
+#v-tooltip {
+  position:absolute;
+  background:#000;
+  padding:3px 5px;
+  color:#fff;
+  font-size: 11px;
+  font-family: Arial, Verdana, sans-serif;
+  display:none;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+}
+
+.tooltip_tagged {
+  color: #e9322d;
+}
 
 

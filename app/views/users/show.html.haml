@@ -1,11 +1,20 @@
 -content_for :body do
  #wrapper
-  %h3{:style => 'padding-bottom: 10px;'}
+  %div{:style => 'float:right;'}
+   =link_to image_tag("power.png", :height => '13', :width => '13',:class=> 'tooltip_tagged'), :action => 'signout'
+  %div{:style => 'float:right;'}
+   =form_for :search, :url => {:controller =>'users', :action => 'search'}, :html => {:class => 'form-search'} do |f|
+    =f.text_field :type => "text",:class => "input-medium search-query"
+    =link_to_function image_tag("search.png", :height => '13', :width => '13'), "$('.sbmt').trigger('click');"
+    =f.submit 'Search', :class => 'sbmt', :type => 'submit', :style => 'display:none;'
+  %h3{:style => 'padding-bottom: 10px; float: left;'}
    Awesome Blog
   %div#navwrapper
    %ul{:class =>"floatleft", :id =>"nav"}
     =list_of(@blogs_container) do |blog|
-     =link_to(blog, {:controller => 'posts',:action => 'index', :parent => blog}, 'content-type' => 'text/javascript',  :remote => true) #, "$('.related_posts').show()"
+     -#=link_to(blog, {:controller => 'posts',:action => 'index', :parent => blog}, 'content-type' => 'text/javascript',  :remote => true) #, "$('.related_posts').show()"
+     %a#jquery_ajax_testing{:style => 'cursor: pointer;'}
+      =blog
     %li
      %a.dmenu
       Create
@@ -19,7 +28,7 @@
   %div#form_wnd{:style =>'display:none; z-index:1000;' }
    =form_for :new, :url =>{:controller => 'blogs', :action => 'create'}, :html => {:multipart => true, :class => "form-inline"}, :remote => true do |f|
     %div
-     %a.boxclose
+     %a.boxclose.tooltip_tagged
     %div
      = f.text_field :theme
      =f.hidden_field :usrid, :value => @user_id
@@ -28,6 +37,7 @@
      =link_to_function('Wanna a background picture?', "$('#background').trigger('click');", :class => 'attch_lnk')
      =f.file_field(:picture, :id=> 'background',:accept => 'image/png', :style =>'display:none;' )
   .blackened
+
 
 
 

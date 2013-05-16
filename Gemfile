@@ -21,6 +21,7 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
+gem 'simple-tooltip'
 gem 'dijit-rails'
 gem 'dojo-rails'
 gem 'remotipart'

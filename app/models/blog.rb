@@ -13,9 +13,17 @@ class Blog < ActiveRecord::Base
       f.write(file_obj.read)
 
     end
+  end
 
-
-
+  def self.search(param)
+    #Did no find out how to apply regexp instead of the LIKE clause
+    #todo: fr some reason SQL does not perform search when requesting it directly from the web page, but i can do it via plain activerecord
+    search_results = {
+    :first => Blog.all(:conditions => "theme LIKE '#{param}%'"),
+    :second => Blog.all(:conditions => "theme LIKE '%#{param}'"),
+    :third => Blog.all(:conditions => "theme LIKE '_%#{param}%'") }
+    Blog.all(:conditions => "theme LIKE '#{param}%'")
+    p search_results
   end
 
 end

@@ -35,9 +35,6 @@ class UsersController < ApplicationController
   end
 
 
-  #def signout
-  #  redirect_to('new')
-  #end
 
 
   def show
@@ -45,5 +42,18 @@ class UsersController < ApplicationController
     @blogs_container = User.find(params[:id]).blogs.map { |blog| blog.theme } #SELECT bl.theme FROM blogs bl INNER JOIN users on bl.user_id = users.id WHERE users.id = params[:id]
 
   end
+
+  def signout
+    redirect_to '/users/new'
+  end
+
+  def search
+
+  search_param =  params[:search].map { |k,v| v }
+
+   Blog.search(search_param)
+
+  end
+
 
 end

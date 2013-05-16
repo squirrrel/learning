@@ -12,6 +12,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.remotipart
+//= require jquery.simple-tooltip
 //= require_tree .
 //= require prototype
 //= require prototype_ujs
