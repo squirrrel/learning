@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+source 'http://rubygems.org'
 
 gem 'rails', '3.2.13'
 
@@ -21,6 +21,10 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
+gem 'ckeditor-rails'
+gem 'mercury-rails'
+gem 'redactor-rails'
+gem 'bootstrap-wysihtml5-rails'
 gem 'simple-tooltip'
 gem 'dijit-rails'
 gem 'dojo-rails'
@@ -46,3 +50,4 @@ gem 'prototype-rails'
 
 # To use debugger
 # gem 'debugger'
+gem 'paperclip'

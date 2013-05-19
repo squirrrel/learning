@@ -16,16 +16,17 @@
      %a#jquery_ajax_testing{:style => 'cursor: pointer;'}
       =blog
     %li
-     %a.dmenu
+     %a.dmenu{:style => 'cursor:pointer;'}
       Create
      %ul#nav
       %li#drpdwn_font
        %a.blg{:style => 'cursor:pointer;'}
         Blog
       %li#drpdwn_font
-       =link_to 'Post'
+       %a.pst{:style => 'cursor:pointer;'}
+        Post
   %div#related_posts
-  %div#form_wnd{:style =>'display:none; z-index:1000;' }
+  %div#create_blog{:style =>'display:none; z-index:1000;' }
    =form_for :new, :url =>{:controller => 'blogs', :action => 'create'}, :html => {:multipart => true, :class => "form-inline"}, :remote => true do |f|
     %div
      %a.boxclose.tooltip_tagged
@@ -36,7 +37,14 @@
     %div#attachment
      =link_to_function('Wanna a background picture?', "$('#background').trigger('click');", :class => 'attch_lnk')
      =f.file_field(:picture, :id=> 'background',:accept => 'image/png', :style =>'display:none;' )
+  %div#create_post{:style =>'display:none; z-index:1000;' }
+   =form_for :new, :url =>{:controller => 'posts', :action => 'create'}, :html => {:multipart => true, :class => "form-inline"}, :remote => true do |f|
+    %div
+     %a.boxclose
+    %textarea{:id=> "primary", :class => 'ckeditor', :style => 'color:#e9322d;'}
+     %a
   .blackened
+
 
 
 

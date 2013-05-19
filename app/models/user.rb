@@ -84,6 +84,19 @@ class User < ActiveRecord::Base
     end
   end
 
+  def self.search(param)
+
+   returned= {}
+   returned[:names] = (User.select { |m| m.name =~ /#{param}/i }).map { |user| user.name }
+
+   returned[:positions] = (User.select { |m| m.position =~ /#{param}/i }).map {|user| user.position}
+
+   returned[:emails] = (User.select { |m| m.email =~ /#{param}/i }).map {|user| user.email}
+
+  returned
+  end
+
+
 end
 
 #todo: not to let db save not_hashed password

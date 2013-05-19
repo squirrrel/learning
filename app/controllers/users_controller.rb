@@ -35,8 +35,6 @@ class UsersController < ApplicationController
   end
 
 
-
-
   def show
     @user_id = params[:id]
     @blogs_container = User.find(params[:id]).blogs.map { |blog| blog.theme } #SELECT bl.theme FROM blogs bl INNER JOIN users on bl.user_id = users.id WHERE users.id = params[:id]
@@ -49,11 +47,20 @@ class UsersController < ApplicationController
 
   def search
 
-  search_param =  params[:search].map { |k,v| v }
+    #todo: highlight the word found
+    #todo: complete returns + add ajax/partial for it
+    searchfld_param = params[:search].map { |k, v| v }
 
-   Blog.search(search_param)
+    blogs_found = Blog.search(searchfld_param.join(''))
+    #+ return the user
+
+    posts_found = Post.search(searchfld_param.join(''))
+    #+return the body + user
+
+    user_found = User.search(searchfld_param.join(''))
+    #returns a hash with all the emails, user, position match. Parse it and process, also see if I can eliminate the empty 'value' arrays at the model level
+    #+ return name+position+email+blogs list+posts
 
   end
-
 
 end

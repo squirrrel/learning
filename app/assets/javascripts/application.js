@@ -11,7 +11,11 @@
 // GO AFTER THE REQUIRES BELOW.
 //= require jquery
 //= require jquery_ujs
+//= require ckeditor-jquery
 //= require jquery.remotipart
+//= require ckeditor/ckeditor.js
+//= require bootstrap.min.js
+//= require jquery-1.7.1.min.js
 //= require jquery.simple-tooltip
 //= require_tree .
 //= require prototype

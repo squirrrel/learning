@@ -7,11 +7,11 @@ jQuery -> link =/\w+/.exec($("#jquery_ajax_testing").text());$("#jquery_ajax_tes
 
 
 
-jQuery -> $( -> $("#form_wnd" ).draggable())
-jQuery -> $(".boxclose").click(-> $('#form_wnd,.blackened, .alert').hide())
-jQuery -> $(".blg").click(-> $('#form_wnd,.blackened').show())
+jQuery -> $( -> $("#create_blog, #create_post" ).draggable())
+jQuery -> $(".boxclose,.blackened").click(-> $('#create_post,#create_blog,.blackened, .alert').hide())
+jQuery -> $(".blg").click(-> $('#create_blog,.blackened').show())
+jQuery -> $(".pst").click(-> $('#create_post,.blackened').show())
 jQuery -> $('li a').first().addClass('important')
-jQuery -> $('.search').click(-> $('.sbmt').trigger('click') )
 
 jQuery -> document.getElementById('background').onchange=-> $('<h6>'+/[^\\]+\.png|gif|jpg$/.exec(this.value)+' attached.</h6>').insertAfter($('.attch_lnk'))
 
@@ -20,8 +20,11 @@ jQuery -> $('.form-inline').submit(->  if /\w+/.exec(window.document.getElementB
   $('<p class="alert alert-error">You should specify your blog name</p>').insertAfter($('#background')) if $('.alert').length == 0
   $(".alert").show()
  else
-  new_blog = /\w+/.exec(window.document.getElementById('new_theme').value)
-  $('#form_wnd,.blackened').hide())
+  $('#create_blog,.blackened').hide())
+
+jQuery -> $( 'div.ckeditor' ).ckeditor(-> skin:'Moono')
+
+
 
 
 #jQuery -> $(window).resize(-> $('body').prepend('<div>' + $(window).width() + '</div>'));
