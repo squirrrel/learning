@@ -1,0 +1,2 @@
+$('#related_posts__search').html("<%= escape_javascript(render :partial => "search.html.haml", :locals => {:blogs => @blogs_found, :posts => @posts_found, :user => @user_found}) %>");
+

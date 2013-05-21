@@ -1,0 +1,20 @@
+%div
+ %h6
+  =@blogs_found.count.to_s + ' blog(s) found'
+ %p
+  =list_of(@blogs_found) do |blog|
+   =blog
+%div
+ %h6
+  =@posts_found.count.to_s + ' post(s) found'
+ %p
+  =list_of(@posts_found) do |post|
+   =post
+%div
+ %h6
+  -injection= @searchfld_param
+  =list_of(@user_found) do |k,v|
+   =@user_found[k].count.to_s + " users(s) found with #{k} containing #{injection}"
+   =v.each do |values|
+    =values
+

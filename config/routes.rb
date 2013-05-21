@@ -78,7 +78,7 @@ Learning::Application.routes.draw do
 
   get '/posts', to: 'posts#index', as: 'initial'
   get '/posts/new', to: 'posts#new', as: 'new_post'
-  post '/posts', to: 'posts#create'
+  post '/posts/create', to: 'posts#create'
   get '/posts/:id', to: 'posts#show', as: 'particular_post'
   get  '/posts/:id/edit', to: 'posts#edit', as: 'update_post'
   put '/posts/:id', to: 'posts#update'

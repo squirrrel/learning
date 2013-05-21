@@ -5,6 +5,8 @@
 jQuery -> window.onload=$(-> $('li a').first().trigger('click'))
 jQuery -> link =/\w+/.exec($("#jquery_ajax_testing").text());$("#jquery_ajax_testing").click(-> $.ajax({type: "GET",url: "http://localhost:3000/posts/",data:{parent: link},dataType: "script"}))
 
+#jQuery ->  $(".editor_form").submit(-> content = CKEDITOR.instances.editor1.getData(); $.ajax({type: "get",url: "http://localhost:3000/posts/create",data:{parent: content,dataType: "script"}}))
+
 
 
 jQuery -> $( -> $("#create_blog, #create_post" ).draggable())
@@ -13,8 +15,13 @@ jQuery -> $(".blg").click(-> $('#create_blog,.blackened').show())
 jQuery -> $(".pst").click(-> $('#create_post,.blackened').show())
 jQuery -> $('li a').first().addClass('important')
 
+#jQuery -> $('a.random').click(-> CKEDITOR.instances.editor1.getData())
+
+
+
 jQuery -> document.getElementById('background').onchange=-> $('<h6>'+/[^\\]+\.png|gif|jpg$/.exec(this.value)+' attached.</h6>').insertAfter($('.attch_lnk'))
 
+#todo: see if i can simplify this: --------------------------------------------------
 jQuery -> $('.form-inline').submit(->  if /\w+/.exec(window.document.getElementById('new_theme').value) is null
   off
   $('<p class="alert alert-error">You should specify your blog name</p>').insertAfter($('#background')) if $('.alert').length == 0
@@ -22,9 +29,13 @@ jQuery -> $('.form-inline').submit(->  if /\w+/.exec(window.document.getElementB
  else
   $('#create_blog,.blackened').hide())
 
-jQuery -> $( 'div.ckeditor' ).ckeditor(-> skin:'Moono')
-
-
+jQuery -> $('.editor_form').submit(-> if /\w+/.exec(window.document.getElementById('rel_blog').value) is null
+  off
+  $('<p class="alert alert-error">You should specify the related blog </p>').insertAfter($('#rel_blog')) if $('.alert').length == 0
+  $(".alert").show()
+else
+  $('#create_post,.blackened').hide())
+ #--------------------------------------------------------------------------------------
 
 
 #jQuery -> $(window).resize(-> $('body').prepend('<div>' + $(window).width() + '</div>'));
@@ -33,13 +44,6 @@ jQuery -> $( 'div.ckeditor' ).ckeditor(-> skin:'Moono')
 #);
 
 #jQuery -> $('.tooltip_tagged').simpleTooltip({title: 'me is a tooltip'})
-
-
-#
-
-
-
-
 
 #todo: add remove attachment functionality
 

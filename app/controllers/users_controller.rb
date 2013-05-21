@@ -49,17 +49,22 @@ class UsersController < ApplicationController
 
     #todo: highlight the word found
     #todo: complete returns + add ajax/partial for it
-    searchfld_param = params[:search].map { |k, v| v }
+    @searchfld_param = (params[:search].map { |k, v| v }).join('')
 
-    blogs_found = Blog.search(searchfld_param.join(''))
+    @blogs_found = Blog.search(@searchfld_param)
     #+ return the user
 
-    posts_found = Post.search(searchfld_param.join(''))
+    @posts_found = Post.search(@searchfld_param)
     #+return the body + user
 
-    user_found = User.search(searchfld_param.join(''))
+    @user_found = User.search(@searchfld_param)
     #returns a hash with all the emails, user, position match. Parse it and process, also see if I can eliminate the empty 'value' arrays at the model level
     #+ return name+position+email+blogs list+posts
+
+    respond_to do |format|
+      format.js { render 'search.js.erb' }
+    end
+
 
   end
 

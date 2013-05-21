@@ -4,8 +4,13 @@
    =v[:title]
   %h5#date
    =v[:created]
+  =javascript_tag "$('#{v[:body]}').inserAfter($('#article')); "
   %h5#article
    =v[:body]
+
+
+
+
 
 
 

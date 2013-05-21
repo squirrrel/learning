@@ -3,7 +3,7 @@
   %div{:style => 'float:right;'}
    =link_to image_tag("power.png", :height => '13', :width => '13',:class=> 'tooltip_tagged'), :action => 'signout'
   %div{:style => 'float:right;'}
-   =form_for :search, :url => {:controller =>'users', :action => 'search'}, :html => {:class => 'form-search'} do |f|
+   =form_for :search, :url => {:controller =>'users', :action => 'search'}, :html => {:class => 'form-search'}, :remote => true do |f|
     =f.text_field :type => "text",:class => "input-medium search-query"
     =link_to_function image_tag("search.png", :height => '13', :width => '13'), "$('.sbmt').trigger('click');"
     =f.submit 'Search', :class => 'sbmt', :type => 'submit', :style => 'display:none;'
@@ -25,7 +25,7 @@
       %li#drpdwn_font
        %a.pst{:style => 'cursor:pointer;'}
         Post
-  %div#related_posts
+  %div#related_posts__search
   %div#create_blog{:style =>'display:none; z-index:1000;' }
    =form_for :new, :url =>{:controller => 'blogs', :action => 'create'}, :html => {:multipart => true, :class => "form-inline"}, :remote => true do |f|
     %div
@@ -38,11 +38,14 @@
      =link_to_function('Wanna a background picture?', "$('#background').trigger('click');", :class => 'attch_lnk')
      =f.file_field(:picture, :id=> 'background',:accept => 'image/png', :style =>'display:none;' )
   %div#create_post{:style =>'display:none; z-index:1000;' }
-   =form_for :new, :url =>{:controller => 'posts', :action => 'create'}, :html => {:multipart => true, :class => "form-inline"}, :remote => true do |f|
+   %a.boxclose
+   =form_for :new, :url =>{:controller => 'posts', :action => 'create'}, :html => {:multipart => true, :class => "editor_form"}, :remote => true do |f|
     %div
-     %a.boxclose
-    %textarea{:id=> "primary", :class => 'ckeditor', :style => 'color:#e9322d;'}
-     %a
+     =f.text_field :related_blg, :id => 'rel_blog', :placeholder => 'Blogs name you want to bind it to' #make it a select with existing blogs options
+    %div
+     = f.text_field :title, :placeholder => 'Title', :id => 'title'
+     = find_and_preserve f.text_area :notes,{:type => "textarea", :id => "editor1", :class => 'ckeditor', :name => "html_link_content"}
+     =f.submit 'Post',:class => 'posting',:type => 'submit'
   .blackened
 
 

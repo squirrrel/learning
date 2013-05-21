@@ -14,6 +14,7 @@
 //= require ckeditor-jquery
 //= require jquery.remotipart
 //= require ckeditor/ckeditor.js
+//= require ckeditor/adapters/jquery
 //= require bootstrap.min.js
 //= require jquery-1.7.1.min.js
 //= require jquery.simple-tooltip
