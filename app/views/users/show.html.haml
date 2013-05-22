@@ -27,11 +27,11 @@
         Post
   %div#related_posts__search
   %div#create_blog{:style =>'display:none; z-index:1000;' }
-   =form_for :new, :url =>{:controller => 'blogs', :action => 'create'}, :html => {:multipart => true, :class => "form-inline"}, :remote => true do |f|
+   =form_for :new, :url =>{:controller => 'blogs', :action => 'create'}, :html => {:multipart => true, :class => "form-inline", :id => 'small_form'}, :remote => true do |f|
     %div
      %a.boxclose.tooltip_tagged
     %div
-     = f.text_field :theme
+     = f.text_field :theme, :class => 'your blog'
      =f.hidden_field :usrid, :value => @user_id
      =f.submit 'Create', :class => 'btn btn-small', :type => 'submit'
     %div#attachment
@@ -39,9 +39,9 @@
      =f.file_field(:picture, :id=> 'background',:accept => 'image/png', :style =>'display:none;' )
   %div#create_post{:style =>'display:none; z-index:1000;' }
    %a.boxclose
-   =form_for :new, :url =>{:controller => 'posts', :action => 'create'}, :html => {:multipart => true, :class => "editor_form"}, :remote => true do |f|
+   =form_for :new, :url =>{:controller => 'posts', :action => 'create'}, :html => {:multipart => true, :class => "editor_form",:id => 'big_form'}, :remote => true do |f|
     %div
-     =f.text_field :related_blg, :id => 'rel_blog', :placeholder => 'Blogs name you want to bind it to' #make it a select with existing blogs options
+     =f.text_field :related_blg, :id => 'rel_blog', :name => 'related blog', :placeholder => 'Blogs name you want to bind it to' #make it a select with existing blogs options
     %div
      = f.text_field :title, :placeholder => 'Title', :id => 'title'
      = find_and_preserve f.text_area :notes,{:type => "textarea", :id => "editor1", :class => 'ckeditor', :name => "html_link_content"}
